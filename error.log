@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "D:\Python\DGSARship\train2.py", line 88, in <module>
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\runner\runner.py", line 1777, in train
+    model = self.train_loop.run()  # type: ignore
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\runner\loops.py", line 105, in run
+    self.runner.val_loop.run()
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\runner\loops.py", line 379, in run
+    self.run_iter(idx, data_batch)
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\torch\utils\_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\runner\loops.py", line 404, in run_iter
+    outputs = self.runner.model.val_step(data_batch)
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\base_model.py", line 132, in val_step
+    data = self.data_preprocessor(data, False)
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\torch\nn\modules\module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmdet\models\data_preprocessors\data_preprocessor.py", line 122, in forward
+    data = super().forward(data=data, training=training)
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\data_preprocessor.py", line 255, in forward
+    data = self.cast_data(data)  # type: ignore
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\data_preprocessor.py", line 51, in cast_data
+    return {key: self.cast_data(data[key]) for key in data}
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\data_preprocessor.py", line 51, in <dictcomp>
+    return {key: self.cast_data(data[key]) for key in data}
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\data_preprocessor.py", line 58, in cast_data
+    return type(data)(self.cast_data(sample) for sample in data)  # type: ignore  # noqa: E501  # yapf:disable
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\data_preprocessor.py", line 58, in <genexpr>
+    return type(data)(self.cast_data(sample) for sample in data)  # type: ignore  # noqa: E501  # yapf:disable
+  File "C:\Users\wj\anaconda3\envs\pytorch\lib\site-packages\mmengine\model\base_model\data_preprocessor.py", line 60, in cast_data
+    return data.to(self.device, non_blocking=self._non_blocking)
+RuntimeError: CUDA error: an illegal memory access was encountered
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
